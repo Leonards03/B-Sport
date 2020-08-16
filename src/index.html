@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>B-Sport</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" href="./assets/img/icon_192.png">
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" >
+    <meta name="theme-color" content="#F5F5F5">
+    <meta name="description" content="Football information portal app">
+    <link rel="manifest" href="./manifest.json">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+    <!-- navigation -->
+    <div class="navbar-fixed">
+        <nav class="white black" role="navigation">
+            <div class="nav-wrapper container">
+                <a href="#home" class="brand-logo black-text" id="logo-container">B-Sport</a>
+                <a href="#" class="sidenav-trigger" data-target="nav-mobile">
+                    <i class="material-icons large black-text">menu</i>
+                </a>
+
+                <ul class="topnav right hide-on-med-and-down"></ul>
+            </div>
+        </nav>
+    </div>
+    <ul class="sidenav" id="nav-mobile"></ul>
+
+    <!-- content -->
+    <main class="container" id="body-content"></main>
+
+    <div class="preloader-wrapper big active">
+        <div class="spinner-layer spinner-black-only">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+                <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="install-container" class="modal bottom-sheet">
+        <div class="modal-content">
+            <h4>Install Our Apps</h4>
+            <p>Never miss out about a news of your favorite teams!</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#home" class="modal-close waves-effect waves-green btn-flat" id="btn-install" >Install!</a>
+            <a href="#home" class="modal-close waves-effect waves-green btn-flat" id="btn-no-install">No thanks.</a>
+        </div>
+    </div>
+</body>
+
+</html>

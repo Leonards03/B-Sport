@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>B-Sport</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" href="./assets/img/icon_192.png">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Football information portal app">
+    <link rel="manifest" href="./manifest.json">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+    <!-- navigation -->
+    <div class="navbar-fixed">
+        <nav class="white black" role="navigation">
+            <div class="nav-wrapper container">
+                <a href="./index.html" class="brand-logo black-text" id="logo-container">B-Sport</a>
+                <a href="./index.html" class="sidenav-trigger">
+                    <i class="material-icons large black-text">arrow_back</i>
+                </a>
+
+                <ul class="topnav right hide-on-med-and-down"></ul>
+            </div>
+        </nav>
+    </div>
+
+    <!-- content -->
+    <main class="container hide" id="body-content">
+        <div class="card">
+            <div class="card-content">
+                <h1 id="headings" class="white"></h1>
+                <div class="col s12">
+                    <ul class="tabs">
+                        <li class="tab col s4"><a class="active" href="#information">Information</a></li>
+                        <li class="tab col s4"><a href="#standings-content">Standings</a></li>
+                        <li class="tab col s4"><a href="#match-content">Matches</a></li>
+                    </ul>
+                </div>
+                <div id="information" class="card col s12"></div>
+                <div id="standings-content" class="col s12">
+                    <ul class="collapsible expandable" id="standings"></ul>
+                </div>
+                <div id="match-content" class="col s12">
+                    <ul class="collapsible expandable" id="matches"></ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="preloader-wrapper big active">
+        <div class="spinner-layer spinner-black-only">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+                <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

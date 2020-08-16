@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>B-Sport</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" href="./assets/img/icon_192.png">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Football information portal app">
+    <link rel="manifest" href="./manifest.json">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+    <!-- navigation -->
+    <div class="navbar-fixed">
+        <nav class="white black" role="navigation">
+            <div class="nav-wrapper container">
+                <a href="./index.html" class="brand-logo black-text" id="logo-container">B-Sport</a>
+                <a href="./index.html" class="sidenav-trigger">
+                    <i class="material-icons large black-text">arrow_back</i>
+                </a>
+                <ul class="topnav right hide-on-med-and-down"></ul>
+            </div>
+        </nav>
+    </div>
+
+    <!-- content -->
+    <main class="container" id="body-content"></main>
+    
+    <div class="preloader-wrapper big active">
+        <div class="spinner-layer spinner-black-only">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+                <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-large black modal-trigger" id="trigger"> 
+            <i class="large material-icons">save</i>        
+        </a>
+    </div>
+
+
+    <div id="favorite-modal" class="modal">
+        <div class="modal-content">
+            <h4>Favorite Team</h4>
+            <p>Save this team to your favorite team list ?</p>
+        </div>
+        <div class="modal-footer">
+            <a class="modal-close waves-effect waves-green btn-flat">No</a>
+            <a class="modal-close waves-effect waves-green btn-flat" id="btn-favorite">Yes</a>
+        </div>
+    </div>
+
+    <div id="delete-modal" class="modal">
+        <div class="modal-content">
+            <h4>Delete</h4>
+            <p>Remove this team from your favorite team list?</p>
+        </div>
+        <div class="modal-footer">
+            <a class="modal-close waves-effect waves-green btn-flat">No</a>
+            <a class="modal-close waves-effect waves-green btn-flat" id="btn-delete">Agree</a>  
+        </div>
+    </div>
+</body>
+
+</html>
