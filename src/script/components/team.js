@@ -106,12 +106,20 @@ function savedTeamWrapper(teams){
     });
 
     if(teamsHTML === ""|| !teamsHTML){
-        teamsHTML+= `
-            <tr class="h-50">
-                <td>
-                    
-                </td>
-            </tr>
+        return `
+        <div class="card">
+            <div class="card-content">
+                <h2>Favorite Team</h2>
+                <br>
+                <div class="h-50vh error-wrapper">
+                    <div class="center-align h-80">
+                        <h2 class="black-ops">Oops</h2>
+                        <h4>Empty favorite team</h4>
+                        <p>Add some team to your favorite!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
         `;
     }
 

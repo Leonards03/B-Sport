@@ -40,12 +40,6 @@ function redirect(url) {
 }
 
 function capitalize(text) {
-    // old ways
-    // return text.charAt("0").toUpperCase() + text.slice(1).toLowerCase();
-
-    // using regex to find uppercase other than first letter, 
-    // the second argument is a function to make it lowercase
-    // return text.replace(/\B[A-Z]/g, x => x.toLowerCase());
     // replacing underscore first and then return within capitalize class span
     return `<span class="capitalize">${replaceUnderscore(text.toLowerCase())}</span>`;
 }

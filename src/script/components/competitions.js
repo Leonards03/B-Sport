@@ -27,7 +27,6 @@ function competitions(response){
     document.querySelector("#body-content").innerHTML = competitionsWrapper(sorted);
 }
 
-
 // view
 function competitionsWrapper(competitions){
     let competitionsHTML="";

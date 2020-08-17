@@ -35,8 +35,12 @@ body{
     margin:0 auto;
 }
 
-.h-50{
+.h-50vh{
     height: 50vh;
+}
+
+.h-80{
+    height: 80%;
 }
 
 .w-100{
