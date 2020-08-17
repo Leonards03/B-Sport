@@ -1,18 +1,18 @@
-import runtime from "serviceworker-webpack-plugin/lib/runtime";
 import { error } from "../utils/helper";
-// Register Service Worker
-if ("serviceWorker" in navigator) {
-    const registration = runtime.register();
-    registration
-        .then(() => console.log("Service worker registration successful"))
-        .catch(e => console.log("Service worker registration failed: ", e));
-} else {
-    console.log("ServiceWorker are not supported by this browser");
-}
+import { Workbox } from "workbox-window/Workbox";
 
-if ("Notification" in window) {
-    requestPermission();
-}
+document.addEventListener("DOMContentLoaded",() => {
+    // Register Service Worker
+    if ("serviceWorker" in navigator) {
+        new Workbox("/sw.js").register();
+    } else {
+        console.log("ServiceWorker are not supported by this browser");
+    }
+
+    if ("Notification" in window) {
+        requestPermission();
+    }
+});
 
 function requestPermission(){
     Notification.requestPermission().then(result => {

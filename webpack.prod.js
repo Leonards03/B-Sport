@@ -20,14 +20,13 @@ module.exports = merge(common, {
             {
                 test:/\.css$/,
                 use: [
-                    MiniCssExtractPlugin.loader, 
                     {
-                        loader:"css-loader",
-                        options:{
-                            url:false
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                            publicPath: "dist/styles"
                         }
-                    }
-                ]
+                    },
+                    "css-loader?url=false"]
             },
             {
                 test:/\.js$/,
@@ -47,6 +46,16 @@ module.exports = merge(common, {
         filename: "[name].[contentHash].css"
     })],
     optimization:{
-        minimizer: [new OptimizeCssAssetsPlugin(), new TerserPlugin()]
+        minimizer: [new OptimizeCssAssetsPlugin(), new TerserPlugin()],
+        splitChunks: {
+            cacheGroups: {
+                style:{
+                    name: "style",
+                    test: /\.css$/,
+                    chunks: "all",
+                    enforce: true
+                }
+            }
+        }
     }
 });

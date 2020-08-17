@@ -1,23 +1,73 @@
-import {CacheableResponsePlugin} from "work"
+import "regenerator-runtime";
+import { CacheableResponsePlugin } from "workbox-cacheable-response/CacheableResponsePlugin";
+import { precacheAndRoute } from "workbox-precaching/precacheAndRoute";
+import { registerRoute } from "workbox-routing/registerRoute";
+import { CacheFirst } from "workbox-strategies/CacheFirst";
+import { StaleWhileRevalidate } from "workbox-strategies/StaleWhileRevalidate";
+import { ExpirationPlugin } from "workbox-expiration/ExpirationPlugin";
+import { Workbox } from "workbox-window/Workbox";
 
-if(workbox)
+if(Workbox)
     console.log("Workbox loaded!");
 else 
     console.log("Worbox loading failed");
 
+precacheAndRoute(self.__WB_MANIFEST, {
+    ignoreURLParametersMatching: [/.*/]
+});
 
-// workbox.precaching.precacheAndRoute([
-//     { url: "/script/vendor/materialize.min.css", revision:"1" },
-//     { url: "/script/vendor/materialize.min.js", revision:"1" },
-//     { url: "/script/styles/style.css", revision:"1"},
-//     { url: "/index.html", revision: "1" },
-//     { url: "/app.js", revision: "1" },
-//     { url: "/competition.html", revision: "1"},
-//     { url: "/competition.js", revision: "1"},
-//     { url: "/team.html", revision: "1" },
-//     { url: "/team.js", revision: "1"}
-// ])
+registerRoute(
+    new RegExp("/assets/img/"),
+    new CacheFirst({
+        cacheName: "images"
+    })
+);
 
+registerRoute(
+    new RegExp("/pages/"),
+    new StaleWhileRevalidate({
+        cacheName: "pages"
+    })
+);
+
+registerRoute(
+    /^https:\/\/api\.football\-data\.org\/v2\//,
+    new StaleWhileRevalidate({
+        cacheName: "football-response",
+        plugins: [
+            new CacheableResponsePlugin({
+                statuses: [0, 200]
+            }),
+            new ExpirationPlugin({
+                maxAgeSeconds: 60 * 60 * 24 * 7, // 7 days
+                maxEntries: 60
+            })
+        ]
+    })
+);
+
+registerRoute(
+    /^https:\/\/fonts\.googleapis\.com/,
+    new StaleWhileRevalidate({
+        cacheName: "google-fonts-stylesheets"
+    })
+);
+
+registerRoute(
+    /^https:\/\/fonts\.gstatic\.com/,
+    new CacheFirst({
+        cacheName: "google-fonts-webfonts",
+        plugins: [
+        new CacheableResponsePlugin({
+            statuses: [0, 200],
+        }),
+        new ExpirationPlugin({
+            maxAgeSeconds: 60 * 60 * 24 * 30, // 30 days
+            maxEntries: 60,
+        }),
+        ]
+    })
+)
 
 self.addEventListener("notificationclick", event => {
     event.notification.close();
@@ -51,7 +101,7 @@ self.addEventListener("push", event => {
 
     let options = {
         body: body,
-        icon: "./img/icon.png",
+        icon: "./assets/img/icon.png",
         vibrate: [100, 50, 100],
         data: {
             dateOfArrival: Date.now(),
@@ -61,4 +111,4 @@ self.addEventListener("push", event => {
     event.waitUntil(
         self.registration.showNotification("Push Notification", options)
     )
-})
+});

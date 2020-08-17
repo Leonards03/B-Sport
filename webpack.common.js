@@ -1,8 +1,8 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const ServiceWorkerWebpackPlugin = require("serviceworker-webpack-plugin");
 const { CleanWebpackPlugin } = require ("clean-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+const { InjectManifest } = require("workbox-webpack-plugin");
 
 module.exports = {
     entry: {
@@ -88,9 +88,6 @@ module.exports = {
             filename:"pages/restricted.html",
             chunks:["pages"]
         }),
-        new ServiceWorkerWebpackPlugin({
-            entry: path.join(__dirname, "src/service-worker.js"),
-        }),
         new CopyWebpackPlugin({
             patterns:[
                 {
@@ -111,6 +108,9 @@ module.exports = {
                 }
             ]
         }),
-        new CleanWebpackPlugin()
+        new CleanWebpackPlugin(),
+        new InjectManifest({
+            swSrc:"./src/sw.js"
+        })
     ]
 }
