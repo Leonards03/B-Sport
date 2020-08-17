@@ -45,16 +45,13 @@ function capitalize(text) {
 
     // using regex to find uppercase other than first letter, 
     // the second argument is a function to make it lowercase
-    return text.replace(/\B[A-Z]/g, x => x.toLowerCase());
+    // return text.replace(/\B[A-Z]/g, x => x.toLowerCase());
+    // replacing underscore first and then return within capitalize class span
+    return `<span class="capitalize">${replaceUnderscore(text.toLowerCase())}</span>`;
 }
 
 function replaceUnderscore(text) {
     return text.replace(/_/g, " ");
-}
-
-function replaceUnderscoreAndCapitalize(text) {
-    text = replaceUnderscore(text);
-    return capitalize(text);
 }
 
 function sortObjectArrayById(array) {
@@ -91,8 +88,6 @@ export {
     error,
     redirect,
     capitalize,
-    replaceUnderscore,
-    replaceUnderscoreAndCapitalize,
     sortObjectArrayById,
     groupBy,
     loading

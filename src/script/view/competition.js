@@ -1,4 +1,4 @@
-import { getCompetitionById } from "../data/api";
+import getCompetitionById from "../components/competition";
 
 const competition = () => {
     getCompetitionById();

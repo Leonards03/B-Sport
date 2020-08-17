@@ -18,6 +18,7 @@ body{
 .spinner-black-only{
     border-color: #000000;
 }
+
 .preloader-wrapper{
     position:absolute;
     top:50%;
@@ -34,7 +35,14 @@ body{
     margin:0 auto;
 }
 
+.h-50{
+    height: 50vh;
+}
 
 .w-100{
     width: 100%;
+}
+
+.capitalize{
+    text-transform: capitalize;
 }

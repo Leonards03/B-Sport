@@ -1,5 +1,6 @@
 import { loadPage, error, loading } from "../utils/helper";
-import { getCompetitions, getSavedTeams } from "../data/api";
+import getCompetitions from "../components/competitions";
+import { getSavedTeams } from "../components/team";
 
 const index = () => {
     // activate sidenav

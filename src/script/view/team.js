@@ -1,5 +1,4 @@
-import { getTeamById, getSavedTeamById} from "../data/api.js";
-import { saveTeam, removeTeam } from "../data/db.js";
+import { getTeamById, getSavedTeamById, saveTeam, removeTeam } from "../components/team";
 
 const team = () => {
     const urlParams = new URLSearchParams(window.location.search);
