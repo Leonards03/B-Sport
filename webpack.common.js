@@ -101,10 +101,6 @@ module.exports = {
                 {
                     from:"./src/favicon.ico",
                     to:"favicon.ico"
-                },
-                {
-                    from:"./src/script/services/push.js",
-                    to:"push.js"
                 }
             ]
         }),
