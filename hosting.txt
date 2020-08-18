@@ -1,2 +1,2 @@
 Firebase Hosting: https://b-sport-a002d.web.app/
-GitHub Pages: 
+GitHub Pages: https://leonards03.github.io/
