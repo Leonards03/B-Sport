@@ -10,6 +10,11 @@ npm install
 ## Starting the Apps
 Open the files on the dist directory with Web Server to run the apps.
 
+## Version
+### master -> Modular without Workbox
+### modular -> Improved version of master
+### workbox -> Using workbox
+
 ## Notes
 Please use this repository as a reference only!
 
