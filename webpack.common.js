@@ -5,11 +5,7 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const { InjectManifest } = require("workbox-webpack-plugin");
 
 module.exports = {
-    entry: {
-        home:"./src/app.js",
-        competition: "./src/competition.js",
-        team: "./src/team.js"
-    },
+    entry: "./src/app.js",
     output: {
         path: path.resolve(__dirname, "dist"),
         filename: "[name].js"
@@ -50,18 +46,15 @@ module.exports = {
     plugins:[
         new HtmlWebpackPlugin({
             template:"./src/index.html",
-            filename:"index.html",
-            chunks:["home"]
+            filename:"index.html"
         }),
         new HtmlWebpackPlugin({
             template:"./src/team.html",
-            filename:"team.html",
-            chunks:["team"]
+            filename:"team.html"
         }),
         new HtmlWebpackPlugin({
             template:"./src/competition.html",
-            filename:"competition.html",
-            chunks:["competition"]
+            filename:"competition.html"
         }),
         new HtmlWebpackPlugin({
             template:"./src/script/pages/404.html",
