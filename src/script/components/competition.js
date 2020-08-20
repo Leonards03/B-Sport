@@ -27,35 +27,6 @@ function getCompetitionById() {
         })
         .then(() => loading(0))
         .catch(error);
-
-    if ("caches" in window) {
-        Promise.all([
-            caches.match(urls.competition(id)),
-            caches.match(urls.competitionStandings(id)),
-            caches.match(urls.competitionMatches(id))
-        ])
-            .then(([competition, standings, matches]) => {
-                if (competition)
-                    competition.json().then(competitionJson => bindCompetition(competitionJson));
-
-                if (standings)
-                    standings.json().then(standingsJson => bindStandings(standingsJson));
-
-                if (matches)
-                    matches.json().then(matchesJson => bindMatches(matchesJson));
-
-                M.Collapsible.init(document.querySelectorAll(".collapsible"), {
-                    accordion: false
-                });
-
-                M.AutoInit();
-            })
-            .then(() => {
-                console.log("from cache")
-                loading(0);
-            })
-            .catch(error);
-    }
 }
 
 // binder

@@ -9,16 +9,6 @@ function getCompetitions() {
         .then(responseJson => competitions(responseJson))
         .then(() => loading(0))
         .catch(error);
-
-    if ("caches" in window) {
-        caches.match(urls.competitions()).then(response => {
-            if (response) {
-                response.json().then(data => competitions(data))
-                    .then(() => loading(0))
-                    .catch(error);
-            }
-        });
-    }
 }
 
 // binder

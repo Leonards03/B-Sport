@@ -16,21 +16,7 @@ function getTeamById(id) {
                 resolve(team);
             })
             .catch(error);
-
-        if ("caches" in window) {
-            caches.match(urls.team(id)).then(response => {
-                if (response) {
-                    response.json()
-                        .then(team => bindTeam(team))
-                        .then(team => {
-                            loading(0);
-                            resolve(team);
-                        });
-                }
-            });
-        }
     });
-
 }
 
 function getSavedTeamById(id) {
@@ -78,7 +64,6 @@ function bindSavedTeam(response){
     if(teams)
         teams.innerHTML = savedTeamWrapper(response);
 }
-
 
 function bindTeam(response) {
     const data = { ...response };
